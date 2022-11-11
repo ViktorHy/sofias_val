@@ -1,16 +1,17 @@
 characters = {
-    'jonas': { 
+    'Jonas': { 
         'speed': 10,
         'agility': 10,
         'intelligence': 10,
         'events': [1,2,3,4,5,6,7,8]
     },
-    'viktor': {
+    'Viktor': {
         'speed':10,
         'agility': 10,
-        'intelligence': 10
+        'intelligence': 10,
+        'events' : ['1','2']
     },
-    'bella': {
+    'Bella': {
         'speed':10,
         'agility': 10,
         'intelligence': 10
