@@ -35,33 +35,63 @@ while(char_not_picked):
 ## for each event, per chosen character
 ## test ##
 char = 'Viktor'
+score = 0
+jossan_has_already_appeared = 0
 char_events = characters.characters[char]['events']
-for event in char_events:
+for event in range(1,8):
+    
+    print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n")
+    print("---MAJ---BF1---GA1---BF2---MIX---GA2---LB1---LB2--SOFIA--")
+    print(events.events[str(event)]['location'])
+    print()
     ## only for the first action, Ryan might knock you out with the toilet door
-    if event == '1':
-        if random.randint(1,20) > 5:
+    if str(event) == '1':
+        if random.randint(1,20) > 10:
             ## increase results by 1
             print("As you exit the office, Ryan comes slamming through the toilet door knocking you out. Suffer 1 minute delay\n")
-        continue
+            input("Press ENTER to continue: ")
+            continue
+        else:
+            print("You exit the office into the corridor, and nothing happens. Weird?")
+            input("Press ENTER to continue: ")
+            continue
 
-    print()
-    print("--[]--[X]--[]--[]--[]--[]--[]")
-    print()
-    print(events.events[event]['prompt'])
-    chosen = input("A or B?: ")
-    ## skill needed for the chosen A or B
-    event_skill = events.events[event][chosen]['skill_type']
-    char_skill_level = characters.characters[char][event_skill]
-    print(event_skill,char_skill_level)
-    dice_outcome = roll(char_skill_level)
-    if dice_outcome:
-        print(events.events[event][chosen]['resolve'])
+    
+    ## now only trigger events that is defined per character in characters.characters['events']
+    if str(event) in characters.characters[char]['events']:
+
+        print(events.events[str(event)]['prompt'])
+        chosen = input("A or B?: ")
+        ## skill needed for the chosen A or B
+        event_skill = events.events[str(event)][chosen]['skill_type']
+        
+        ## event has a question
+        if event_skill == "question":
+            answer = events.events[str(event)][chosen]['fail_value']
+            if answer:
+                ## add no score
+                print(events.events[str(event)][chosen]['resolve'])
+            else:
+                # add score, wrong answer
+                print(events.events[str(event)][chosen]['fail_text'])
+        
+        ## event has a skill check
+        else:
+            char_skill_level = characters.characters[char][event_skill]
+            print(event_skill,char_skill_level)
+            dice_outcome = roll(char_skill_level)
+            if dice_outcome:
+                print(events.events[str(event)][chosen]['resolve'])
+            else:
+                ## also add points to results
+                print(events.events[str(event)][chosen]['fail_text'])
     else:
-        ## also add points to results
-        print(events.events[event][chosen]['fail_text'])
+        print("You pass by and noone wants to speak to you..rude")
+    input("Press ENTER to continue: ")
+    
     ## Jossan
     jossan_appears = jossan()
 
-    if jossan_appears == 20:
+    if jossan_appears == 20 and not jossan_has_already_appeared:
         print("you move three steps back")
     
