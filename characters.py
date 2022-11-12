@@ -9,7 +9,7 @@ characters = {
         'speed':10,
         'agility': 10,
         'intelligence': 10,
-        'events' : ['1','2','7']
+        'events' : ['2','7']
     },
     'Bella': {
         'speed':10,

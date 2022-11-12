@@ -41,26 +41,37 @@ char_events = characters.characters[char]['events']
 for event in range(1,8):
     
     print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n")
-    print("---MAJ---BF1---GA1---BF2---MIX---GA2---LB1---LB2--SOFIA--")
-    print(events.events[str(event)]['location'])
-    print()
+    
+    
     ## only for the first action, Ryan might knock you out with the toilet door
     if str(event) == '1':
+        score = score +1
         if random.randint(1,20) > 10:
             ## increase results by 1
+            print("          R")
+            print("          /")
+            print(events.events[str(event)]['location'])
+            print("---MAJ---BF1---GA1---BF2---MIX---GA2---LB1---LB2--SOFIA--")
             print("As you exit the office, Ryan comes slamming through the toilet door knocking you out. Suffer 1 minute delay\n")
-            input("Press ENTER to continue: ")
-            continue
+            score = score +1
+            #input("Press ENTER to continue: ")
+            
         else:
+            print(events.events[str(event)]['location'])
+            print("---MAJ---BF1---GA1---BF2---MIX---GA2---LB1---LB2--SOFIA--")
+            print()
             print("You exit the office into the corridor, and nothing happens. Weird?")
-            input("Press ENTER to continue: ")
-            continue
+            #input("Press ENTER to continue: ")
+            
 
     
     ## now only trigger events that is defined per character in characters.characters['events']
-    if str(event) in characters.characters[char]['events']:
-
+    elif str(event) in characters.characters[char]['events']:
+        print(events.events[str(event)]['location'])
+        print("---MAJ---BF1---GA1---BF2---MIX---GA2---LB1---LB2--SOFIA--")
+        print()
         print(events.events[str(event)]['prompt'])
+        score = score +1
         chosen = input("A or B?: ")
         ## skill needed for the chosen A or B
         event_skill = events.events[str(event)][chosen]['skill_type']
@@ -73,6 +84,7 @@ for event in range(1,8):
                 print(events.events[str(event)][chosen]['resolve'])
             else:
                 # add score, wrong answer
+                score = score +1
                 print(events.events[str(event)][chosen]['fail_text'])
         
         ## event has a skill check
@@ -84,14 +96,23 @@ for event in range(1,8):
                 print(events.events[str(event)][chosen]['resolve'])
             else:
                 ## also add points to results
+                score = score + 1
                 print(events.events[str(event)][chosen]['fail_text'])
     else:
+        print(events.events[str(event)]['location'])
+        score = score +1
+        print("---MAJ---BF1---GA1---BF2---MIX---GA2---LB1---LB2--SOFIA--")
         print("You pass by and noone wants to speak to you..rude")
-    input("Press ENTER to continue: ")
     
+    
+
     ## Jossan
     jossan_appears = jossan()
 
     if jossan_appears == 20 and not jossan_has_already_appeared:
         print("you move three steps back")
-    
+        score = score + 3
+        jossan_has_already_appeared = 1
+    input("Press ENTER to continue: ")
+
+print("You have reached your final destination, Sofias office! You look at your watch, it took",score," minues! Yeesh")
