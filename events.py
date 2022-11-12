@@ -2,18 +2,6 @@ events = {
     '1': {
         'prompt': "What do you encounter",
         'location': "---[ ]---[X]---[ ]---[ ]---[ ]---[ ]---[ ]---[ ]---[ ]---",
-        'A': {
-            'skill_type': "agility",
-            'resolve': "this happens",
-            'fail_value': 1,
-            'fail_text': "You suffer this because of that, move X steps back"
-        },
-        'B': {
-            'skill_type': "agility",
-            'resolve': "this happens",
-            'fail_value': 1,
-            'fail_text': "You suffer this because of that, move X steps back"
-        }
     },
     '2': {
         'prompt': "You are closing in on the usually eerily empty room, but your new colleague Camilla is now inhabiting the closest chair to the door. \n She's doing quality assurance work and need your help to find a document.\n Will you A: Try to remember where this document is \n or \n will you B: run back to your computer to find where it is?",
@@ -42,13 +30,13 @@ events = {
         },
         'B': {
             'skill_type': "agility",
-            'resolve': "this happens",
+            'resolve': "You sprint back, using extremy all your dexterity and speed. Spring back, shouting. DOKUMENTPORTALEN!",
             'fail_value': 1,
             'fail_text': "You were not fast enough, this delays you another 1 min"
         }
     },
     '4': {
-        'prompt': "You are closing in on the usually eerily empty room, but your new colleague Camilla is now inhabiting the closest chair to the door. \n She's doing quality assurance work and need your help to find a document.\n Will you A: Try to remember where this document is \n or \n will you B: run back to your computer to find where it is?",
+        'prompt': "",
         'location': "---[ ]---[ ]---[ ]---[ ]---[X]---[ ]---[ ]---[ ]---[ ]---",
         'A': {
             'skill_type': "intelligence",
