@@ -198,5 +198,5 @@ while(1):
 
     print("You stumble into Sofias office! You look at your watch, it took",score,"minues!",score_result)
     with open("highscore.txt", "a") as scorefile:
-        scorefile.write(player+"\t"+char+"\t"+score)
+        scorefile.write(player+"\t"+char+"\t"+str(score))
     input("Press ENTER to restart the game: ")
