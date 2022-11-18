@@ -1,29 +1,29 @@
 characters = {
-    'Jonas': { 
-        'clarity': 10,
-        'baking': 10,
-        'agility': 10,
-        'stealth': 10,
-        'charisma': 10,
-        'intelligence': 10,
+    'Jonas': {
+        'clarity': 15,
+        'baking': 5,
+        'agility': 15,
+        'stealth': 5,
+        'charisma': 15,
+        'intelligence': 5,
         'events': ['3','7','8','4','6']
     },
     'Viktor': {
-        'clarity':10,
-        'baking': 10,
-        'agility': 10,
-        'charisma': 10,
-        'stealth': 10,
-        'intelligence': 10,
+        'clarity':5,
+        'baking': 15,
+        'agility': 15,
+        'charisma': 15,
+        'stealth': 5,
+        'intelligence': 5,
         'events' : ['2','7','5','8','6']
     },
     'Bella': {
-        'clarity':10,
-        'baking': 10,
-        'agility': 10,
-        'stealth': 10,
-        'charisma': 10,
-        'intelligence': 10,
+        'clarity':20,
+        'baking': 5,
+        'agility': 5,
+        'stealth': 15,
+        'charisma': 5,
+        'intelligence': 15,
         'events': ['3','7','5','8','4']
     }
 }

@@ -43,7 +43,6 @@ def promptab():
     return chosen
 
 while(1):
-
     feeling = ['rude','strange','nice!','peculiar']
     ### welcome to game, explain the goal
     print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n")
@@ -59,6 +58,7 @@ while(1):
 
     ## pick character prompt ##
     ## only exits when you have picked a valid character
+    player = input("What's your name?: ")
     char_not_picked = 1
     while(char_not_picked):
         char = input ("Pick a character, Bella, Viktor or Jonas, by typing their name (case sensitive): ")
@@ -69,7 +69,7 @@ while(1):
     ## for each event, per chosen character
     ## test ##
     #char = 'Viktor'
-    print("Hi, ",char,"!",sep="")
+    print("Hi, ",player," playing as ",char,"!",sep="")
     input("press ENTER to continue:")
     score = 0
     jossan_has_already_appeared = 0
@@ -197,4 +197,6 @@ while(1):
         score_result = "yeeesh took you long enough!"
 
     print("You stumble into Sofias office! You look at your watch, it took",score,"minues!",score_result)
+    with open("highscore.txt", "a") as scorefile:
+        scorefile.write(player+"\t"+char+"\t"+score)
     input("Press ENTER to restart the game: ")
